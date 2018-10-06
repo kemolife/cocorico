@@ -116,6 +116,13 @@ class Listing extends BaseListing
      */
     private $options;
 
+    /**
+     * @ORM\Column(type="string", length=13)
+     * @Assert\NotBlank(message="assert.not_blank")
+     * @Assert\Isbn(type = "isbn13")
+     */
+    private $isbn;
+
 
     public function __construct()
     {
@@ -642,5 +649,29 @@ class Listing extends BaseListing
                 }
             }
         }
+    }
+
+    /**
+     * Set isbn
+     *
+     * @param string $isbn
+     *
+     * @return Listing
+     */
+    public function setIsbn($isbn)
+    {
+        $this->isbn = $isbn;
+
+        return $this;
+    }
+
+    /**
+     * Get isbn
+     *
+     * @return string
+     */
+    public function getIsbn()
+    {
+        return $this->isbn;
     }
 }

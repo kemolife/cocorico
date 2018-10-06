@@ -125,6 +125,9 @@ class LoadListingData extends AbstractFixture implements OrderedFixtureInterface
         $listing->setPrice(10000);
         $listing->setCertified(1);
 
+        //Default isbn value
+        $listing->setIsbn('99921-58-10-7');
+
         /** @var User $user */
         $user = $manager->merge($this->getReference('offerer'));
         $listing->setUser($user);
